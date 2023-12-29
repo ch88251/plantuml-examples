@@ -1,0 +1,31 @@
+@startuml
+title Linked List - Remove Last
+start
+
+if (length == 0) then (true)
+  :return null;
+else (false)
+    :current = head;
+    :previous = head;
+
+    while (current.next is not null) is (true)
+    :previous = current;
+    :current = current.next;
+    endwhile (false)
+
+    partition "Edge Case [Only one item in list]" #LightGray {
+        :tail = previous;
+        :tail.next = null;
+        :length = length - 1;
+
+    }
+
+    if (length == 0) then (true)
+    :Set head to null;
+    :Set tail to null;
+    else (false)
+    :Return current;
+    endif
+endif
+stop
+@enduml

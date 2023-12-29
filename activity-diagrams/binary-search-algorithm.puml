@@ -1,0 +1,21 @@
+@startuml
+title Binary Search Algorithm
+start
+:Initialize low = 0;
+:Initialize high = array.length - 1;
+:Initialize mid;
+while (low <= high) is (condition)
+  :mid = (low + high) / 2;
+  if (array[mid] == target) then (found)
+    :Return mid;
+  else (not found)
+    if (array[mid] < target) then (move high)
+      :low = mid + 1;
+    else (move low)
+      :high = mid - 1;
+    endif
+  endif
+endwhile (condition)
+:Return -1;
+stop
+@enduml
